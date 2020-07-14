@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 
 import os, sys, argparse, requests, json
+from urllib3.exceptions import InsecureRequestWarning
+
+requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)
 
 parser = argparse.ArgumentParser(description="Abuse GitLab Runners")
 parser.add_argument('--target', dest='target', help="The GitLab instance to target")
